@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Temperature Convertor</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <header>
+      <!--Image varies depending on current season-->
+      <img src="img/winter.jpg" alt="">
+   </header>
+   <main id="container">
+      <h1 id="headline">Temperature Converter</h1>
+      <section id="input-section">
+         <input type="text" id="input-temp" placeholder="Enter temperature">
+         <select name="input-temp-scale" id="input-temp-scale">
+            <option value="selected">Temperature Scale</option>
+            <option value="farenheit">Farenheit</option>
+            <option value="celsius">Celsius</option>
+            <option value="kelvin">Kelvin</option>
+         </select>
+         <button id="convert">Convert</button>
+      </section>
+
+      <section id="results">
+         <div class="result-div">
+            <p class="result-text" id="result-farenheit">98.6 degrees Farenheit</p>
+         </div>
+         <div class="result-div">
+            <p class="result-text" id="result-celsius">37 degrees Celsisus</p>
+         </div>
+         <div class="result-div">
+            <p class="result" id="result-kelvin">310.2 degrees Kelvin</p>
+         </div>
+
+      </section>
+
+      <footer>
+         <p id="copyright">&copy;  2020 Casey Pitman</p>
+      </footer>
+
+
+   </main>
+
+
+   
+
+
+
+</body>
+<script src="app.js"></script>
+
+</html>
