@@ -6,3 +6,12 @@
    margin:0;
    padding:0;
 }
+
+#header-img{
+
+   width: 100%;
+}
+
+#headline{
+   color: red;
+}
