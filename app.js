@@ -9,6 +9,8 @@ let state = { };
 * UI Controller*
 ****************/
 
+//MAKE EACH MODULE A FUNCTOIN THAT RETURNS AN OBJECT FULL OF FUNCTIONS
+
 
 //DOMstrings
 const elements = {
