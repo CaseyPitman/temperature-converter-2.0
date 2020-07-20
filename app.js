@@ -44,7 +44,8 @@ const uiController = (() => {
 
    //DOMstrings
    const elements = {
-      header: document.getElementById('header'),
+     // header: document.getElementById('header'),
+      body: document.getElementById('body'),
       tempInput: document.getElementById('input-temp'),
       results: document.getElementById('result-div'),
       farenheitResult: document.getElementById('farenheit-result'),
@@ -60,6 +61,8 @@ const uiController = (() => {
          let month, season, imgSrc;
          month = new Date().getMonth();
 
+         month = 10;
+
          //Determine which season it is.
          if (month > 1 && month< 5){  //Spring - MAR, APR, MAY
             season = `spring`;
@@ -72,7 +75,10 @@ const uiController = (() => {
          }
 
          //Set the background based on the season.
-         elements.header.insertAdjacentHTML('beforeend', `<img src="img/${season}-crop.jpg" alt="${season} image" id="header-img">`)
+
+         body.style.backgroundImage = `url('img/${season}.jpg')`;
+
+         //elements.header.insertAdjacentHTML('beforeend', `<img src="img/${season}.jpg" alt="${season} image" id="header-img">`)
       },
 
       clearInput: () => {
