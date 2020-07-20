@@ -7,9 +7,10 @@
    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   <header>
-      <!--Image varies depending on current season-->
-      <img src="img/winter.jpg" alt="">
+   <header id = "header">
+      <!--Image varies depending on current season
+      <img src="img/winter.jpg" alt="" class="header-img">
+      -->
    </header>
    <main id="container">
       <h1 id="headline">Temperature Converter</h1>
@@ -25,14 +26,15 @@
       </section>
 
       <section id="results">
+
          <div class="result-div">
-            <p class="result-text" id="result-farenheit">98.6 degrees Farenheit</p>
+            <p class="result-text" id="farenheit-result">98.6 degrees Farenheit</p>
          </div>
          <div class="result-div">
-            <p class="result-text" id="result-celsius">37 degrees Celsisus</p>
+            <p class="result-text" id="celsius-result">37 degrees Celsisus</p>
          </div>
          <div class="result-div">
-            <p class="result" id="result-kelvin">310.2 degrees Kelvin</p>
+            <p class="result" id="kelvin-result">310.2 degrees Kelvin</p>
          </div>
 
       </section>
@@ -43,11 +45,6 @@
 
 
    </main>
-
-
-   
-
-
 
 </body>
 <script src="app.js"></script>
