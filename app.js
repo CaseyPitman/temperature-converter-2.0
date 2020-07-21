@@ -46,39 +46,54 @@ const uiController = (() => {
    const elements = {
      // header: document.getElementById('header'),
       body: document.getElementById('body'),
+      main: document.getElementById('main'),
       tempInput: document.getElementById('input-temp'),
       results: document.getElementById('result-div'),
       farenheitResult: document.getElementById('farenheit-result'),
       celsiusResult: document.getElementById('celsius-result'),
       kelivinResult: document.getElementById('kelvin-result')
-   };
+   }
+   
+   const colors = {
+      summer: '(255, 255, 153, 0.75)',
+      fall: '(205, 133, 63, 0.75)',
+      winter: '(175, 238, 238, 0.75)',
+      spring: '(245, 255, 250, 0.75)'
+   }
 
 
    return {
    //Determines date and sets the header image based on season of the year. 
       setBackgroundImg : () => {
 
-         let month, season, imgSrc;
-         month = new Date().getMonth();
+         let month, season, color;
+        // month = new Date().getMonth();
 
-         month = 10;
+        month = 9;
+   
 
          //Determine which season it is.
          if (month > 1 && month< 5){  //Spring - MAR, APR, MAY
             season = `spring`;
+            color =  'rgb(245, 255, 250, 0.75)';
          } else if (month > 4 && month< 8) {  //Summer - JUNE, JULY, AUG
             season = `summer`;
+            color = 'rgb(255, 255, 153, 0.75)';
          } else if (month > 7 && month < 11) {   //Fall - SEPT, OCT, NOV
             season = `fall`;
+            color = 'rgb(205, 133, 63, 0.75)';
          } else {                               //Winter - DEC, JAN, FEB
             season = `winter`;
+            color = 'rgb(245, 255, 250, 0.75)';
          }
 
          //Set the background based on the season.
 
          body.style.backgroundImage = `url('img/${season}.jpg')`;
+         console.log(color);
+         main.style.backgroundColor = color;
 
-         //elements.header.insertAdjacentHTML('beforeend', `<img src="img/${season}.jpg" alt="${season} image" id="header-img">`)
+         //  background-color:rgb(245, 255, 250, 0.75);
       },
 
       clearInput: () => {
@@ -119,6 +134,7 @@ const uiController = (() => {
 
 const controller = ((data, ui) => {
    //Get DOMstrings elements
+   let elements = ui.getElements();
 
    //Set up event listeners
 
