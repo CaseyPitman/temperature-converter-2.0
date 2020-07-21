@@ -18,33 +18,38 @@
 
 
    <main id="main">
-      <h1 id="headline">Temperature Converter</h1>
-      <section id="input-section">
-         <input type="text" id="input-temp" placeholder="Enter temperature">
-         <select name="input-temp-scale" id="input-temp-scale">
-            <option value="selected">Temperature Scale</option>
-            <option value="farenheit">Farenheit</option>
-            <option value="celsius">Celsius</option>
-            <option value="kelvin">Kelvin</option>
-         </select>
-         <button id="convert">Convert</button>
-      </section>
+      <div id="wrapper">
+         <h1 id="headline">Temperature Converter</h1>
+         <section id="input-section">
+            <div id = "input-div">
+               <input type="number" id="input-temp" placeholder="Enter Temperature" value = "">
+               <select name="input-temp-scale" id="input-temp-scale">
+                  <option value="selected">Temperature Scale</option>
+                  <option value="farenheit">Farenheit</option>
+                  <option value="celsius">Celsius</option>
+                  <option value="kelvin">Kelvin</option>
+               </select>
+            </div>
+            <div id="button-div">
+               <button id="convert">Convert</button>
+            </div>
+         </section>
 
-      <section id="results">
+         <section id="results">
+            <div class="result-div">
+               <p class="result-text" id="farenheit-result">98.6 degrees Farenheit</p>
+            </div>
+            <div class="result-div">
+               <p class="result-text" id="celsius-result">37 degrees Celsius</p>
+            </div>
+            <div class="result-div">
+               <p class="result-text" id="kelvin-result">310.2 degrees Kelvin</p>
+            </div>
+         </section>
 
-         <div class="result-div">
-            <p class="result-text" id="farenheit-result">98.6 degrees Farenheit</p>
-         </div>
-         <div class="result-div">
-            <p class="result-text" id="celsius-result">37 degrees Celsius</p>
-         </div>
-         <div class="result-div">
-            <p class="result" id="kelvin-result">310.2 degrees Kelvin</p>
-         </div>
+      </div>
 
-      </section>
-
-      <footer>
+      <footer id="footer">
          <p id="copyright">&copy;  2020 Casey Pitman</p>
       </footer>
 
