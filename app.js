@@ -47,6 +47,7 @@ const uiController = (() => {
      // header: document.getElementById('header'),
       body: document.getElementById('body'),
       main: document.getElementById('main'),
+      wrapper: document.getElementById('wrapper'),
       tempInput: document.getElementById('input-temp'),
       results: document.getElementById('result-div'),
       farenheitResult: document.getElementById('farenheit-result'),
@@ -69,7 +70,7 @@ const uiController = (() => {
          let month, season, color;
         // month = new Date().getMonth();
 
-        month = 9;
+        month = 0;
    
 
          //Determine which season it is.
@@ -91,7 +92,7 @@ const uiController = (() => {
 
          body.style.backgroundImage = `url('img/${season}.jpg')`;
          console.log(color);
-         main.style.backgroundColor = color;
+         wrapper.style.backgroundColor = color;
 
          //  background-color:rgb(245, 255, 250, 0.75);
       },
