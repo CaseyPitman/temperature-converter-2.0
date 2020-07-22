@@ -54,7 +54,7 @@ html {
 
 #input-temp, 
 #input-temp-scale, 
-#convert {
+#convert-btn {
    border-radius: 0px;
    border: 1px solid gray;
    height:30px;
@@ -87,13 +87,13 @@ html {
    justify-content: center;
 }
 
-#convert {
+#convert-btn {
    padding: 7px;
    background-color:white;
    color:black;
 }
 
-#convert:hover {
+#convert-btn:hover {
    transform: scale(1.1);
    background-color:gainsboro;
 }

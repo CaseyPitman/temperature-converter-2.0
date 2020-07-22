@@ -49,6 +49,8 @@ const uiController = (() => {
       main: document.getElementById('main'),
       wrapper: document.getElementById('wrapper'),
       tempInput: document.getElementById('input-temp'),
+      tempScale: document.getElementById('input-temp-scale'),
+      convertBtn: document.getElementById('convert-btn'),
       results: document.getElementById('result-div'),
       farenheitResult: document.getElementById('farenheit-result'),
       celsiusResult: document.getElementById('celsius-result'),
@@ -70,7 +72,7 @@ const uiController = (() => {
          let month, season, color;
         // month = new Date().getMonth();
 
-        month = 6;
+        month = 9;
    
 
          //Determine which season it is.
@@ -90,9 +92,9 @@ const uiController = (() => {
 
          //Set the background based on the season.
 
-         body.style.backgroundImage = `url('img/${season}.jpg')`;
-         console.log(color);
-         wrapper.style.backgroundColor = color;
+         elements.body.style.backgroundImage = `url('img/${season}.jpg')`;
+        // console.log(color);
+         elements.wrapper.style.backgroundColor = color;
 
          //  background-color:rgb(245, 255, 250, 0.75);
       },
@@ -103,10 +105,22 @@ const uiController = (() => {
 
       },
 
-
       getInput: () => {
-         //Get input from DOM.   - ensure proper formatting
+         let inputs = {};
+         let temp, scale;
+         
+         //Get temp input from DOM.
+         temp = parseInt(elements.tempInput.value);
+         scale = elements.tempScale.value;
+         console.log(`${temp} degrees ${scale}`)
 
+         if (Number.isNaN(temp)){   //Input is NaN
+            alert('Please enter the temperature in the form of a number');
+         } else if (scale === 'selected'){    //User does not select temp. scale.
+            alert('Please select a temperature scale.');
+         }
+
+        
 
          //Get input type from DOM;  - ensure proper formatting
 
@@ -134,11 +148,23 @@ const uiController = (() => {
 **************/
 
 const controller = ((data, ui) => {
-   //Get DOMstrings elements
-   let elements = ui.getElements();
-
    //Set up event listeners
-
+   setUpEventListeners = function(){   
+      //Get DOMstrings elements
+      let elements = ui.getElements();
+      
+      elements.convertBtn.addEventListener('click', convert);
+      
+      document.addEventListener('keypress', function(event){
+         if (event.keyCode === 13 || event.which === 13){
+            convert();
+         }
+      });
+   };
+   
+   convert = () => {
+      ui.getInput();
+   }
    //Calls for getting input and type
 
    //Calls for making the calculations
@@ -151,7 +177,7 @@ const controller = ((data, ui) => {
    return {
       init: () => {
          ui.setBackgroundImg();
-         //Clear inputs
+         setUpEventListeners();
          //Reset scale selector
          //Clear results
 
