@@ -28,11 +28,11 @@ html {
 }
 
 #wrapper {
-   
    height:66%;
    width: 100%;
    position:relative;
 }
+
 
 #headline {
    color:black;
@@ -53,13 +53,12 @@ html {
 }
 
 #input-temp, 
-#input-temp-scale, 
-#convert-btn {
+#input-temp-scale {
    border-radius: 0px;
    border: 1px solid gray;
    height:30px;
    text-align: center;
-   margin:5px 5px;
+   margin:5px 10px;
    font-size:14px;
    font-family: 'Spartan', sans-serif;
    background-color: white;
@@ -87,13 +86,18 @@ html {
    justify-content: center;
 }
 
-#convert-btn {
-   padding: 7px;
+#convert-btn,
+#clear-btn {
    background-color:white;
    color:black;
+   width:100%;
+   
+  
 }
 
-#convert-btn:hover {
+
+#convert-btn:hover, 
+#clear-btn:hover {
    transform: scale(1.1);
    background-color:gainsboro;
 }

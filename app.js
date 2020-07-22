@@ -100,8 +100,11 @@ const uiController = (() => {
       },
 
       clearInput: () => {
-         //Resets input on init
-         //Resets selector
+         //Clear temp input
+
+         //Clear scale input
+
+         //Clear results
 
       },
 
@@ -116,17 +119,16 @@ const uiController = (() => {
 
          if (Number.isNaN(temp)){   //Input is NaN
             alert('Please enter the temperature in the form of a number');
+            return;
          } else if (scale === 'selected'){    //User does not select temp. scale.
             alert('Please select a temperature scale.');
+            return;
+         } else {
+            inputs.temp = temp;
+            inputs.scale = scale;
          }
-
-        
-
-         //Get input type from DOM;  - ensure proper formatting
-
-         //return inputs as object
-
-
+      
+         return inputs;
       },
 
       displayResults: (tempResults) => {
@@ -163,9 +165,10 @@ const controller = ((data, ui) => {
    };
    
    convert = () => {
-      ui.getInput();
+      let inputs = ui.getInput();
+      console.log('controller', inputs)
    }
-   //Calls for getting input and type
+      //if not defined  - meaning user fuckec up input return so as to wait
 
    //Calls for making the calculations
 
