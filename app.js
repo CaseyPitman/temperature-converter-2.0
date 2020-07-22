@@ -70,7 +70,7 @@ const uiController = (() => {
          let month, season, color;
         // month = new Date().getMonth();
 
-        month = 0;
+        month = 6;
    
 
          //Determine which season it is.
@@ -79,7 +79,7 @@ const uiController = (() => {
             color =  'rgb(245, 255, 250, 0.75)';
          } else if (month > 4 && month< 8) {  //Summer - JUNE, JULY, AUG
             season = `summer`;
-            color = 'rgb(255, 255, 153, 0.75)';
+            color = 'rgb(135, 206, 250, 0.75)';
          } else if (month > 7 && month < 11) {   //Fall - SEPT, OCT, NOV
             season = `fall`;
             color = 'rgb(205, 133, 63, 0.75)';
