@@ -109,6 +109,7 @@ html {
 
 #clear-btn {
    margin: 40px 0;
+   visibility:hidden; 
 }
 
 #convert-btn:hover, 

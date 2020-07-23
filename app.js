@@ -6,17 +6,15 @@
 
 
 const dataController = (() => { 
-   let tempResults = {};
 
    return {
-      //tempResults: { },    possibly put this here.
-
+   
       calculateTemp: (temp, scale) => {
-
+         let tempResults = {};
          if (scale === 'farenheit'){
             tempResults.farenheit = temp;
-            tempResults.celsius = ((temp - 32) * (5 / 9));
-            tempResults.kelvin = (((temp - 32) * (5 / 9)) + 273.15);
+            tempResults.celsius = ((temp - 32) / 1.8);
+            tempResults.kelvin = (((temp - 32) / (1.8)) + 273.15);
          } else if ( scale === 'celsius'){
             tempResults.farenheit = ((temp * 1.8) + 32);
             tempResults.celsius = temp;
@@ -26,12 +24,8 @@ const dataController = (() => {
             tempResults.celsius = temp - 273.15;
             tempResults.kelvin = temp;
          }
-      },
-
-      getResults: () => {
          return tempResults;
       }
-
    }
 })();
 
@@ -54,7 +48,8 @@ const uiController = (() => {
       results: document.getElementById('result-div'),
       farenheitResult: document.getElementById('farenheit-result'),
       celsiusResult: document.getElementById('celsius-result'),
-      kelivinResult: document.getElementById('kelvin-result')
+      kelvinResult: document.getElementById('kelvin-result'),
+      resetButton: document.getElementById('clear-btn')
    }
    
    const colors = {
@@ -64,7 +59,6 @@ const uiController = (() => {
       spring: '(245, 255, 250, 0.8)'
    }
 
-
    return {
    //Determines date and sets the header image based on season of the year. 
       setBackgroundImg : () => {
@@ -73,7 +67,6 @@ const uiController = (() => {
         // month = new Date().getMonth();
 
         month = 9;
-   
 
          //Determine which season it is.
          if (month > 1 && month< 5){  //Spring - MAR, APR, MAY
@@ -111,27 +104,43 @@ const uiController = (() => {
       getInput: () => {
          let inputs = {};
          let temp, scale;
-         
+         // console.log('parsed temp', temp)
          //Get temp input from DOM.
-         temp = parseInt(elements.tempInput.value);
+         temp = elements.tempInput.value;
          scale = elements.tempScale.value;
-         console.log(`${temp} degrees ${scale}`)
+         // console.log(`${temp} degrees ${scale}`)
 
-         if (Number.isNaN(temp)){   //Input is NaN
+         if (Number.isNaN(parseFloat(temp))){   //Input is NaN
             alert('Please enter the temperature in the form of a number');
             return;
          } else if (scale === 'selected'){    //User does not select temp. scale.
             alert('Please select a temperature scale.');
             return;
          } else {
-            inputs.temp = temp;
+            inputs.temp = parseFloat(temp, );
             inputs.scale = scale;
          }
       
          return inputs;
       },
 
-      displayResults: (tempResults) => {
+      displayResults: (results) => {
+         let farenheit, celsius, kelvin;
+
+         farenheit = results.farenheit.toFixed(1);
+         celsius = results.celsius.toFixed(1);
+         kelvin = results.kelvin.toFixed(2);
+
+/*       console.log (`${farenheit} degrees Farenheit.`);
+         console.log (`${celsius} degrees Celsius.`);
+         console.log (`${kelvin} degrees Kelvin.`); */
+
+         //Display converted temperatures
+         elements.farenheitResult.innerText = `${farenheit} degrees Farenheit.`;
+         elements.celsiusResult.innerText = `${celsius} degrees Celsius.`;
+         elements.kelvinResult.innerText = `${kelvin} degrees Kelvin.`;
+
+         //Show reset button
 
 
       },
@@ -139,7 +148,6 @@ const uiController = (() => {
       getElements: function(){
          return elements;
       }
-
    }
 })();
 
@@ -150,10 +158,13 @@ const uiController = (() => {
 **************/
 
 const controller = ((data, ui) => {
+   let results, inputs, elements;
+
+
    //Set up event listeners
    setUpEventListeners = function(){   
       //Get DOMstrings elements
-      let elements = ui.getElements();
+      elements = ui.getElements();
       
       elements.convertBtn.addEventListener('click', convert);
       
@@ -164,17 +175,21 @@ const controller = ((data, ui) => {
       });
    };
    
-   convert = () => {
-      let inputs = ui.getInput();
-      console.log('controller', inputs)
-   }
-      //if not defined  - meaning user fuckec up input return so as to wait
-
    //Calls for making the calculations
+   convert = () => {
+      
+      inputs = ui.getInput();
 
-   //Calls for displaying the calculations
-      //pass the temp results object
+      // console.log('controller', inputs);
+      if (inputs === undefined){       //User did not input correctly
+         return;                       //Wait for proper input
+      } else {
+         //Call for caluclation
+         results = dataController.calculateTemp(inputs.temp, inputs.scale);
+      }
+      uiController.displayResults(results);
 
+   }
 
    //Return init
    return {
@@ -184,6 +199,7 @@ const controller = ((data, ui) => {
 
          //Reset scale selector
          //Clear results
+         //hide reset button
 
       }
    }
@@ -195,10 +211,4 @@ controller.init();
 
 
 
-
-
-//init function 
-   //clears inputs
-   //resets temp selector
-   //clears results
 
