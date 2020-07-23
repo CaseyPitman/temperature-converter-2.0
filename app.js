@@ -181,6 +181,7 @@ const controller = ((data, ui) => {
       init: () => {
          ui.setBackgroundImg();
          setUpEventListeners();
+
          //Reset scale selector
          //Clear results
 

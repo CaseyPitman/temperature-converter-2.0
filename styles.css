@@ -9,6 +9,7 @@
 
 html {
    font-family: 'Spartan', sans-serif;
+   color:rgb(38, 38, 38);
 }
 
 #body {
@@ -31,14 +32,20 @@ html {
    height:66%;
    width: 100%;
    position:relative;
+   display:flex;
+   align-items: center;
 }
 
+#content {
+   margin: auto;
+   width:90%;
+   /* background-color:rgb(255, 255, 255, 0.15); */
+}
 
 #headline {
-   color:black;
    text-align:center;
    margin: 50px auto 0;
-   font-size: 28px;
+   font-size: 26px;
 }
 
 #input-section {
@@ -46,10 +53,14 @@ html {
    justify-content: center;
    align-items: center;
    flex-flow:row wrap;
+   width:100%;
 }
 
 #input-div {
    margin: 50px auto 0;
+   width:100%;
+   display:flex;
+   justify-content: space-between;
 }
 
 #input-temp, 
@@ -57,49 +68,53 @@ html {
    border-radius: 0px;
    border: 1px solid gray;
    height:30px;
-   text-align: center;
-   margin:5px 10px;
-   font-size:14px;
+   margin:5px 0;
+   padding-left:5px;
+   font-size:12px;
    font-family: 'Spartan', sans-serif;
    background-color: white;
+   width:48%;
+   color:rgb(38, 38, 38);
 }
 
 ::-webkit-input-placeholder { /* Edge */
-   color: black;
-   font-size:14px;
+   color:rgb(38, 38, 38);
+   font-size:12px;
+
  }
  
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color: black;
-   font-size:14px;
+   color:rgb(38, 38, 38);
+   font-size:12px;
+
  }
  
 ::placeholder {
-   color: black;
-   font-size:14px;
+   color:rgb(38, 38, 38);
+   font-size:12px;
+
  }
 
-#button-div {
-   margin: 20px;
+.button {
+   background-color:rgb(255, 255, 255, 0.5);
+   border-radius: 0px;
+   border: 1px solid gray;
+   color:rgb(38, 38, 38);
    width:100%;
-   display:flex;
-   justify-content: center;
+   margin: 20px 0px;
+   height:35px;
+   font-size:14px;
+   font-family: 'Spartan', sans-serif;
 }
 
-#convert-btn,
 #clear-btn {
-   background-color:white;
-   color:black;
-   width:100%;
-   
-  
+   margin: 40px 0;
 }
-
 
 #convert-btn:hover, 
 #clear-btn:hover {
-   transform: scale(1.1);
-   background-color:gainsboro;
+   font-weight:700;
+   background-color:rgb(255, 255, 255);
 }
 
 #results{
@@ -107,7 +122,7 @@ html {
    justify-content: center;
    align-items: center;
    flex-flow: row wrap;
-   margin: 40px auto 0;
+   margin: 20px auto ;
 }
 
 .result-div {
@@ -117,16 +132,15 @@ html {
 }
 
 .result-text {
-   font-size:24px;
+   font-size:20px;
 }
 
 #copyright {
    position:absolute;
    bottom: 0;
    right: 0;
-   color:black;
    font-size: 12px;
-   font-weight: 400;
+   font-weight: 700;
    padding: 0 3px 3px 0;
 }
 
@@ -136,36 +150,50 @@ html {
 @media screen and (min-width: 768px){
    
    #headline {
-      font-size: 40px;
+      font-size: 36px;
+   }
+
+   #content {
+      width:66%;
+      /* background-color:rgb(255, 255, 255, 0.15); */
    }
 
    #input-temp, 
    #input-temp-scale, 
    #convert {
-      
       height:35px;
-      text-align: center;
-      margin:5px 5px;
-      font-size:20px;
-      padding: 0 5px;
+      margin:5px 0;
+      font-size:18px;
    }
 
    ::-webkit-input-placeholder { /* Edge */
       
-      font-size:20px;
+      font-size:18px;
     }
     
    :-ms-input-placeholder { /* Internet Explorer 10-11 */
      
-      font-size:20px;
+      font-size:18px;
     }
     
    ::placeholder {
-      
-      font-size:20px;
+   
+      font-size:18px;
     }
    
     .result-text {
-      font-size:32px;
+      font-size:24px;
+   }
+
+   #copyright {
+      font-size: 16px;
    }
 }
+
+
+/* Tablet in landscape */
+
+@media all and (min-width:768px) and (orientation:landscape) {
+   #headline{
+      /* styles here */
+} }
