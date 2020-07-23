@@ -1,6 +1,4 @@
 
-/*clearfix and borderbox*/
-
 * {
    box-sizing: border-box;
    margin:0;
@@ -39,7 +37,6 @@ html {
 #content {
    margin: auto;
    width:90%;
-   /* background-color:rgb(255, 255, 255, 0.15); */
 }
 
 #headline {
@@ -92,7 +89,6 @@ html {
 ::placeholder {
    color:rgb(38, 38, 38);
    font-size:12px;
-
  }
 
 .button {
@@ -109,7 +105,6 @@ html {
 
 #clear-btn {
    margin: 40px 0;
-   visibility:hidden; 
 }
 
 #convert-btn:hover, 
@@ -156,7 +151,6 @@ html {
 
    #content {
       width:66%;
-      /* background-color:rgb(255, 255, 255, 0.15); */
    }
 
    #input-temp, 
@@ -225,10 +219,8 @@ html {
 /* Large Tablets in landscape and Desktops/Laptops */
 
 @media screen and (min-width: 1200px){
-
    #content {
       width:35%
    }
-
 }
 
