@@ -8,7 +8,6 @@
 const dataController = (() => { 
 
    return {
-
       //Convert the given temp to all scales. 
       calculateTemp: (temp, scale) => {
          let tempResults = {};
